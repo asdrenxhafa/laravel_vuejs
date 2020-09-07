@@ -122,6 +122,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hAxV8MBmMEuhLKsyoPD63yo5y0" />
@@ -151,7 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599467719122</updated>
       <workItem from="1599467720179" duration="278000" />
-      <workItem from="1599468005194" duration="267000" />
+      <workItem from="1599468005194" duration="1927000" />
     </task>
     <servers />
   </component>
