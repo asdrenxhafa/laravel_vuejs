@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/questions','QuestionController@index');
+Route::get('/questions/{id}','QuestionController@show')->name('questions.show');
