@@ -2434,10 +2434,10 @@ textarea.form-control.is-valid {
 }
 
 .invalid-feedback {
-  display: block;
+  display: none;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 45%;
+  font-size: 80%;
   color: #e3342f;
 }
 
@@ -10928,5 +10928,9 @@ strong {
 .status.answered-accepted {
   background: #5fbb7e;
   color: #fff;
+}
+
+form.form-delete {
+  display: inline;
 }
 

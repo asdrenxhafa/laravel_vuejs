@@ -47,7 +47,7 @@
 
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
-                                        <h3 class="mt-3"><a href="{{ $q->url }}">{{ $q->title }}</a></h3>
+                                        <h3 class="mt-3" style="width:80%;"><a href="{{ $q->url }}">{{ $q->title }}</a></h3>
                                         <div class="ml-auto">
                                             <a href="{{ route('questions.edit',$q->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                                         </div>

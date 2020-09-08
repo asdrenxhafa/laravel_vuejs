@@ -56,28 +56,23 @@ class QuestionController extends Controller
         return view('questions.edit',compact('question'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
+
+
+
     public function update(QuestionsRequest $request, Question $question)
     {
         $question->update($request->validated());
 
-        return redirect('questions')->with('success','Your question has been successfully edited');
+        return redirect('questions')->with('success','Your question has been successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
+
+
+
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+
+        return redirect('questions')->with('success','Your question has been successfully deleted');
     }
 }
