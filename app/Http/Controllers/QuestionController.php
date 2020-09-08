@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $questions = Question::latest()->paginate(5);
@@ -21,14 +17,12 @@ class QuestionController extends Controller
         return view('questions.index',compact('questions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+//        $question = new Question();
+
+//        return view('home');
+        return view('questions.create');
     }
 
     /**
@@ -39,7 +33,22 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'title'=>'required|max:25',
+            'body'=>'required',
+        ];
+
+        $this->validate($request,$rules);
+
+         $newQuestion = Question::create([
+             'title' => $request->get('title'),
+             'body' => $request->get('body'),
+             'user_id' => $request->user()->id,
+             ]);
+
+        $questions = Question::latest()->paginate(5);
+
+        return view('questions.index',compact('questions'));
     }
 
     /**
