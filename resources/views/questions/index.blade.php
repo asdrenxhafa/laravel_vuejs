@@ -48,9 +48,11 @@
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <h3 class="mt-3" style="width:80%;"><a href="{{ $q->url }}">{{ $q->title }}</a></h3>
-                                        <div class="ml-auto">
-                                            <a href="{{ route('questions.edit',$q->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                                        </div>
+                                        @if(Auth::user()->can('update',$q))
+                                            <div class="ml-auto">
+                                                <a href="{{ route('questions.edit',$q->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                            </div>
+                                        @endif
                                     </div>
                                     <p class="lead">
                                         Asked by

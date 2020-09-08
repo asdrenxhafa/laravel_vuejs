@@ -51,6 +51,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        $this->authorize('view',$question);
+
         return view('questions.edit',compact('question'));
     }
 
@@ -59,6 +61,8 @@ class QuestionController extends Controller
 
     public function update(QuestionsRequest $request, Question $question)
     {
+        $this->authorize('update',$question);
+
         $question->update($request->validated());
 
         return redirect('questions')->with('success','Your question has been successfully updated');
@@ -69,6 +73,8 @@ class QuestionController extends Controller
 
     public function destroy(Question $question)
     {
+        $this->authorize('delete',$question);
+
         $question->delete();
 
         return redirect('questions')->with('success','Your question has been successfully deleted');
