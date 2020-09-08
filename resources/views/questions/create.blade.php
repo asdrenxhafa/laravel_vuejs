@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="button" class="btn btn-default" value="Anulo" >
-                                        <input type="submit" class="btn btn-primary" value="Shto" >
+                                        <input type="submit" class="btn btn-primary" value="Make" >
                                     </div>
                                 </form>
                             </div>

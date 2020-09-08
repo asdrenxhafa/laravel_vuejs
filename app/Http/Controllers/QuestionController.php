@@ -20,9 +20,6 @@ class QuestionController extends Controller
 
     public function create()
     {
-//        $question = new Question();
-
-//        return view('home');
         return view('questions.create');
     }
 
@@ -53,11 +50,10 @@ class QuestionController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
      */
     public function edit(Question $question)
     {
-        //
+        return view('questions.edit',compact('question'));
     }
 
     /**
@@ -67,9 +63,11 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionsRequest $request, Question $question)
     {
-        //
+        $question->update($request->validated());
+
+        return redirect('questions')->with('success','Your question has been successfully edited');
     }
 
     /**
