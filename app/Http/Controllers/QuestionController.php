@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionsRequest;
 use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -25,30 +26,16 @@ class QuestionController extends Controller
         return view('questions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(QuestionsRequest $request)
     {
-        $rules = [
-            'title'=>'required|max:25',
-            'body'=>'required',
-        ];
-
-        $this->validate($request,$rules);
-
-         $newQuestion = Question::create([
-             'title' => $request->get('title'),
-             'body' => $request->get('body'),
-             'user_id' => $request->user()->id,
-             ]);
+        $newQuestion = new Question($request->validated());
+        $newQuestion->user_id = $request->user()->id;
+        $newQuestion->save();
 
         $questions = Question::latest()->paginate(5);
 
-        return view('questions.index',compact('questions'));
+        return redirect('questions')->with('success','Your question has been successfully submitted');
     }
 
     /**

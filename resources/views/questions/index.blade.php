@@ -15,6 +15,20 @@
                     </div>
 
                     <div class="card-body">
+
+                        @if(session()->has('success'))
+                            <div class="alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+                        @if(session()->has('failure'))
+                            <div class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                {{ session()->get('failure') }}
+                            </div>
+                        @endif
+
                         @foreach($questions as $q)
                             <div class="media">
                                 <div class="d-flex flex-column counters">

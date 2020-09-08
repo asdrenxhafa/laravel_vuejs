@@ -20,27 +20,32 @@
                                 <form method="POST" action=" {{ route('questions.store') }} ">
                                     @csrf
                                     <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Question Title</label>
-                                            <input name="title" type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" required>
-                                        </div>
 
                                         @if($errors->has('title'))
                                             <div class="invalid-feedback">
                                                 <strong>{{ $errors->first('title') }}</strong>
                                             </div>
+                                            <div></div>
                                         @endif
 
                                         <div class="form-group">
-                                            <label>Explain your Question</label>
-                                            <textarea name="body" type="" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" required></textarea>
+                                            <label>Question Title</label>
+                                            <input name="title" type="text" value="{{ old('title') }}" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" required>
                                         </div>
+
 
                                         @if($errors->has('body'))
                                             <div class="invalid-feedback">
                                                 <strong>{{ $errors->first('body') }}</strong>
                                             </div>
                                         @endif
+
+                                        <div class="form-group">
+                                            <label>Explain your Question</label>
+                                            <textarea name="body" type="" value="{{ old('body') }}" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" required></textarea>
+                                        </div>
+
+
 
                                     </div>
                                     <div class="modal-footer">
