@@ -35,15 +35,13 @@ class QuestionController extends Controller
         return redirect('questions')->with('success','Your question has been successfully submitted');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show(Question $question)
     {
-        //
+        $question->increment('views');
+
+        return view('questions.show',compact('question'));
     }
 
     /**
