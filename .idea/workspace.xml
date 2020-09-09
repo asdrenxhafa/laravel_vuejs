@@ -24,9 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d80f560f-82fd-486a-ae04-afe25e5e731b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Answer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/QuestionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QuestionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_08_132253_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_08_132253_create_answers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,7 @@
       <workItem from="1599468005194" duration="17456000" />
       <workItem from="1599549054676" duration="12525000" />
       <workItem from="1599566664760" duration="9816000" />
-      <workItem from="1599636911561" duration="2530000" />
+      <workItem from="1599636911561" duration="7845000" />
     </task>
     <servers />
   </component>
