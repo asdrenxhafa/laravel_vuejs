@@ -37,7 +37,7 @@
                                     </div>
 
                                     <div class="status {{ $q->status }}">
-                                        <strong>{{ $q->answers }}</strong> {{ 'Answers',$q->answers }}
+                                        <strong>{{ $q->answers_count }}</strong> {{ 'Answers',$q->answers_count }}
                                     </div>
 
                                     <div class="view">

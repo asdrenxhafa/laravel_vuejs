@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    redirect('login');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function(){
 
     Route::resource('questions','QuestionController')->except('show');
     Route::get('questions/{slug}','QuestionController@show')->name('questions.show');
+
+    Route::resource('answers','AnswerController');
 });
 
 

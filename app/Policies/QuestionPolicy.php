@@ -30,7 +30,7 @@ class QuestionPolicy
      */
     public function view(User $user, Question $question)
     {
-
+        return $user->id === $question->user_id;
     }
 
     /**
