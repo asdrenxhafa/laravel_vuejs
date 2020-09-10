@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
     Route::post('answers/{question_id}','AnswerController@store')->name('answers.store');
     Route::get('answers/{answer}/edit/{question}','AnswerController@edit')->name('answers.edit');
     Route::delete('answers/{answer}','AnswerController@destroy')->name('answers.destroy');
+    Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 });
 
 

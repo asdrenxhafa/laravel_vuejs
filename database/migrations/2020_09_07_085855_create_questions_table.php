@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('views')->default(0);
             $table->integer('answers_count')->default(0);
             $table->integer('votes')->default(0);
-            $table->integer('best_answer_id')->nullable();
+            $table->unsignedBigInteger('best_answer_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->softDeletes();
             $table->timestamps();
@@ -37,6 +37,8 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::table('questions', function (Blueprint $table) {
+            $table->dropForeign(['best_answer_id']);
+        });
     }
 }
