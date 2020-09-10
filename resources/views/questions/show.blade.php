@@ -14,6 +14,22 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <div class="media">
+                            <div class="d-fex flex-column vote-controls">
+                                <a title="This question is useful" class="vote-up">
+                                    <i class="fas fa-caret-up fa-3x"></i>
+                                </a>
+                                <span class="votes-count">1230</span>
+                                <a title="This question is not useful" class="vote-down off">
+                                    <i class="fas fa-caret-down fa-3x"></i>
+                                </a>
+                                <a title="Click to mark as favorite question (Click again to undo)" class="favorite mt-2 favorited">
+                                    <i class="fas fa-star fa-2x"></i>
+                                    <span class="favorites-count">123</span>
+                                </a>
+                            </div>
+                            <div class="media-body">
                     <div class="card-body">
                         {{ $question->body }}
                         <div class="media">
@@ -25,6 +41,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="row mt-4">
                 <div class="col-md-12">
                     <div class="card">
@@ -66,7 +84,42 @@
                             @endforeach
                         </div>
                     </div>
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h2>Your Answer</h2>
+                            </div>
+
+                            <div class="media">
+                                <div class="media-body">
+                                    <form method="POST" action="{{ route('answers.store',['question_id'=>$question->id]) }}">
+                                        {{csrf_field()}}
+                                        <div class="form-group">
+                                            <label>Explain your Answer</label>
+                                            <textarea name="body" class="form-control" required style="height: 275px;"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-primary" value="Post Your Answer" >
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+            </div>
+        </div>
+        </div>
+
 @endsection

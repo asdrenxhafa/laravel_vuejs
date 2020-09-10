@@ -3,39 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Http\Requests\AnswersRequest;
+use App\Question;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(AnswersRequest $request,$id)
     {
-        //
-    }
+       $question = Question::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $question->answers()->create($request->validate([
+                'body' => 'required'
+            ]) + ['user_id' => \Auth::id()] );
+
+//        $newAnswer = new Answer($request->validated());
+//        $newAnswer->user_id = $request->user()->id;
+//        $newAnswer->question_id = $question;
+//        $newAnswer->save();
+
+        return back()->with('success', "Your answer has been submitted successfully");
     }
 
     /**
@@ -49,16 +37,6 @@ class AnswerController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Answer $answer)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
