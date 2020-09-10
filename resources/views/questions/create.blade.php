@@ -42,14 +42,12 @@
 
                                         <div class="form-group">
                                             <label>Explain your Question</label>
-                                            <textarea name="body" type="" value="{{ old('body') }}" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" required></textarea>
+                                            <textarea name="body" type="" value="{{ old('body') }}" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" required style="height: 225px;"></textarea>
                                         </div>
-
 
 
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="button" class="btn btn-default" value="Anulo" >
                                         <input type="submit" class="btn btn-primary" value="Make" >
                                     </div>
                                 </form>

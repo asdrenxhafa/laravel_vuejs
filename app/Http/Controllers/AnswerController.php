@@ -63,6 +63,16 @@ class AnswerController extends Controller
      */
     public function destroy(Answer $answer)
     {
-        //
+        $this->authorize('delete', $answer);
+
+        if(request()->has('question')){
+            $q = request()->get('question');
+        }
+
+        $question = Question::findOrFail($q);
+
+        $answer->delete();
+
+        return redirect()->route('questions.show', $question->slug)->with('success', "Your answer has been removed");
     }
 }
