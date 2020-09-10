@@ -33,7 +33,7 @@
                             <div class="media">
                                 <div class="d-flex flex-column counters">
                                     <div class="vote">
-                                        <strong>{{ $q->votes }}</strong> {{ 'Votes',$q->votes }}
+                                        <strong>{{ $q->votes_count }}</strong> {{ 'Votes',$q->votes_count }}
                                     </div>
 
                                     <div class="status {{ $q->status }}">
