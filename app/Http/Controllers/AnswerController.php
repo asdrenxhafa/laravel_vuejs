@@ -16,12 +16,7 @@ class AnswerController extends Controller
 
         $question->answers()->create($request->validate([
                 'body' => 'required'
-            ]) + ['user_id' => \Auth::id()] );
-
-//        $newAnswer = new Answer($request->validated());
-//        $newAnswer->user_id = $request->user()->id;
-//        $newAnswer->question_id = $question;
-//        $newAnswer->save();
+            ]) + ['user_id' => \Auth::id()]);
 
         return back()->with('success', "Your answer has been submitted successfully");
     }
@@ -38,16 +33,26 @@ class AnswerController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Answer $answer)
+    public function edit(Answer $answer, Question $question){
+        $this->authorize('view',$answer);
+
+        return view('answers.edit',compact('answer','question'));
+    }
+
+
+    public function update(AnswersRequest $request, Answer $answer)
     {
-        //
+        $this->authorize('update',$answer);
+
+        if($request->has('question')){
+            $q = $request->get('question');
+        }
+
+        $question = Question::findOrFail($q);
+
+        $answer->update($request->validated());
+
+        return redirect()->route('questions.show', $question->slug)->with('success', "Your answer has been submitted successfully");
     }
 
     /**

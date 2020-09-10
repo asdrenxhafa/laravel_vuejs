@@ -51,6 +51,20 @@
                                 <h2>{{ $question->answers_count . ' Answers'  }}</h2>
                             </div>
                             <hr>
+
+                            @if(session()->has('success'))
+                                <div class="alert alert-success alert-dismissible">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
+                            @if(session()->has('failure'))
+                                <div class="alert alert-danger alert-dismissible">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{ session()->get('failure') }}
+                                </div>
+                            @endif
+
                             @foreach ($question->answers as $answer)
                                 <div class="media">
                                     <div class="d-fex flex-column vote-controls">
@@ -69,6 +83,11 @@
                                         {{ $answer->body }}
                                         <div class="float-right">
                                             <span class="text-muted">Answered {{ $answer->created_at->diffForHumans() }}</span>
+                                            @if(Auth::user()->can('update',$answer))
+                                                <div class="ml-auto">
+                                                    <a href="{{ route('answers.edit',[$answer,$question]) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                                </div>
+                                            @endif
                                             <div class="media mt-2">
                                                 <a href="{{ $answer->user->url }}" class="pr-2">
                                                     <img src="{{ $answer->user->avatar }}">

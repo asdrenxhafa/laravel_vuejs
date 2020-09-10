@@ -25,8 +25,9 @@ Route::middleware('auth')->group(function(){
     Route::resource('questions','QuestionController')->except('show');
     Route::get('questions/{slug}','QuestionController@show')->name('questions.show');
 
-    Route::resource('answers','AnswerController')->except('index','show','create','edit','store');
+    Route::resource('answers','AnswerController')->except('index','show','create','store','edit');
     Route::post('answers/{question_id}','AnswerController@store')->name('answers.store');
+    Route::get('answers/{answer}/edit/{question}','AnswerController@edit')->name('answers.edit');
 });
 
 
