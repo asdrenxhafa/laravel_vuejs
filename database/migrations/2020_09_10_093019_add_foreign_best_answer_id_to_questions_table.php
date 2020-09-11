@@ -26,7 +26,7 @@ class AddForeignBestAnswerIdToQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->dropForeign(['best_answer_id']);
         });
     }
 }

@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+//Route::get('/','QuestionController@index')->middleware('auth');
 
 Auth::routes();
 
 Route::middleware('auth')->group(function(){
+
+    Route::get('/','QuestionController@index');
 
     Route::resource('questions','QuestionController')->except('show');
     Route::get('questions/{slug}','QuestionController@show')->name('questions.show');

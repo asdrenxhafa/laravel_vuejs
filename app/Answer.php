@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use App\VotableTrait;
+
 
 class Answer extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, VotableTrait;
 
     protected $dates = ['deleted_at'];
 
@@ -34,21 +36,6 @@ class Answer extends Model
     public function isBest()
     {
         return $this->id === $this->question->best_answer_id;
-    }
-
-    public function votes()
-    {
-        return $this->morphToMany(User::class, 'votable');
-    }
-
-    public function upVotes()
-    {
-        return $this->votes()->wherePivot('vote', 1);
-    }
-
-    public function downVotes()
-    {
-        return $this->votes()->wherePivot('vote', -1);
     }
 
 

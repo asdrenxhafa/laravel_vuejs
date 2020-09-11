@@ -29,7 +29,7 @@
                             </div>
                         @endif
 
-                        @foreach($questions as $q)
+                        @forelse($questions as $q)
                             <div class="media">
                                 <div class="d-flex flex-column counters">
                                     <div class="vote">
@@ -64,7 +64,12 @@
                                 </div>
                             </div>
                             <hr>
-                        @endforeach
+                        @empty
+                                <div class="alert alert-warning">
+                                    <strong>Sorry</strong> There are no questions available.
+                                </div>
+                            @endforelse
+
 
                         <div class="pagination justify-content-center">
                             {{ $questions->links() }}

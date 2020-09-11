@@ -14,12 +14,26 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
+//            $table->id();
+//            $table->string('title');
+//            $table->string('slug')->unique();
+//            $table->text('body');
+//            $table->integer('views')->default(0);
+//            $table->integer('answers_count')->default(0);
+//            $table->integer('votes_count')->default(0);
+//            $table->unsignedBigInteger('best_answer_id')->nullable();
+//            $table->unsignedBigInteger('user_id');
+//            $table->softDeletes();
+//            $table->timestamps();
+//
+//            $table->foreign('user_id')->references('id')->on('users');
+
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');
-            $table->integer('views')->default(0);
-            $table->integer('answers_count')->default(0);
+            $table->unsignedBigInteger('views')->default(0);
+            $table->unsignedBigInteger('answers_count')->default(0);
             $table->integer('votes_count')->default(0);
             $table->unsignedBigInteger('best_answer_id')->nullable();
             $table->unsignedBigInteger('user_id');
@@ -27,6 +41,7 @@ class CreateQuestionsTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
@@ -37,8 +52,13 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropForeign(['best_answer_id']);
-        });
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
+
+//        Schema::table('questions', function (Blueprint $table) {
+//            $table->dropForeign(['best_answer_id']);
+//        });
+
+        Schema::dropIfExists('questions');
     }
 }

@@ -23,16 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80f560f-82fd-486a-ae04-afe25e5e731b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/VotableTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Answer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AnswerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AnswerFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/QuestionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QuestionFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_07_085855_create_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_085855_create_questions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_08_132253_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_08_132253_create_answers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_10_093019_add_foreign_best_answer_id_to_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_093019_add_foreign_best_answer_id_to_questions_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/FavoritesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FavoritesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UsersQuestionsAnswersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersQuestionsAnswersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/VotablesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/VotablesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,6 +176,11 @@
     <property name="settings.editor.selected.configurable" value="inlay.hints.PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asdren\Desktop\laravel_vue\app" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -191,7 +200,8 @@
       <workItem from="1599549054676" duration="12525000" />
       <workItem from="1599566664760" duration="9816000" />
       <workItem from="1599636911561" duration="20841000" />
-      <workItem from="1599722194992" duration="17840000" />
+      <workItem from="1599722194992" duration="19777000" />
+      <workItem from="1599808395424" duration="3955000" />
     </task>
     <servers />
   </component>
@@ -227,9 +237,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="777" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1599482651309" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1599746458734">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1599811066975">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1599746458734" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1599811066975" />
   </component>
 </project>

@@ -23,7 +23,15 @@ class CreateAnswersTable extends Migration
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+
+//            $table->id();
+//            $table->unsignedInteger('question_id');
+//            $table->unsignedInteger('user_id');
+//            $table->text('body');
+//            $table->integer('votes_count')->default(0);
+//            $table->timestamps();
+
 
         });
     }
@@ -35,6 +43,9 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
+
         Schema::dropIfExists('answers');
     }
 }
