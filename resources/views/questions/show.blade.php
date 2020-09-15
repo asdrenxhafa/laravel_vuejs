@@ -54,6 +54,13 @@
                             <div class="media-body">
                     <div class="card-body">
                         {{ $question->body }}
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <user-info :model="{{ $question }}" label="Asked"></user-info>
+                            </div>
+                        </div>
                         <div class="media">
                             <div class="media-body">
                                 </div>
@@ -139,7 +146,7 @@
                                     <div class="media-body">
                                         {{ $answer->body }}
                                         <div class="float-right">
-                                            <span class="text-muted">Answered {{ $answer->created_at->diffForHumans() }}</span>
+{{--                                            <span class="text-muted">Answered {{ $answer->created_at->diffForHumans() }}</span>--}}
                                             @if(Auth::user()->can('update',$answer))
                                                 <div class="ml-auto">
                                                     <a href="{{ route('answers.edit',[$answer,$question]) }}" class="btn btn-sm btn-outline-info">Edit</a>
@@ -150,7 +157,8 @@
                                                     <img src="{{ $answer->user->avatar }}">
                                                 </a>
                                                 <div class="media-body mt-1">
-                                                    <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>
+{{--                                                    <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>--}}
+                                                        <user-info :model="{{ $answer }}" label="Answered"></user-info>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,8 +168,6 @@
                             @endforeach
                         </div>
                     </div>
-
-
 
 
             <div class="row mt-4">
