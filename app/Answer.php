@@ -14,7 +14,7 @@ class Answer extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['created_date','body_html'];
+    protected $appends = ['created_date', 'body_html', 'is_best','best_answer'];
 
     public function getBodyHtmlAttribute()
     {
@@ -43,6 +43,12 @@ class Answer extends Model
     public function isBest()
     {
         return $this->id === $this->question->best_answer_id;
+    }
+
+    public function getBestAnswerAttribute(){
+        $bestAnswer = Answer::find($this->question->best_answer_id);
+
+        return $this->question->best_answer_id;
     }
 
     public function getCreatedDateAttribute(){

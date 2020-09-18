@@ -6,8 +6,10 @@
 
 require('./bootstrap');
 require('./fontawesome');
+import Authorization from './authorization/authorize';
 
 window.Vue = require('vue');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,7 +24,11 @@ window.Vue = require('vue');
 
 Vue.component('user-info', require('./components/UserInfo.vue').default);
 Vue.component('answer', require('./components/Answer.vue').default);
+Vue.component('answers', require('./components/Answers.vue').default);
 Vue.component('favorite', require('./components/Favorite.vue').default);
+Vue.component('accept', require('./components/Accept.vue').default);
+Vue.component('vote', require('./components/Vote.vue').default);
+Vue.use(Authorization);
 
 // let user = Vue.component('user-info', require('./components/UserInfo.vue').default);
 

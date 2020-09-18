@@ -18,9 +18,12 @@
 
                         <div class="media">
                             <div>
-                            @include ('shared.vote', [
-                                'model' => $question
-                            ])
+
+{{--                            @include ('shared.vote', [--}}
+{{--                                'model' => $question--}}
+{{--                            ])--}}
+
+                                <vote :model="{{ $question }}" name="question"></vote>
 
                             </div>
                             <div class="media-body">
@@ -44,6 +47,9 @@
         'answers' => $question->answers,
         'answersCount' => $question->answers_count,
         ])
+
+{{--                <answers :answers="{{ $question->answers }}" :count="{{ $question->answers_count }}"></answers>--}}
+
                 @include ('answers.create')
         </div>
 
