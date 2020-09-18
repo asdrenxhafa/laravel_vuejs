@@ -23,10 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80f560f-82fd-486a-ae04-afe25e5e731b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/event-bus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Answer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Answers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Accept.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Accept.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -206,7 +206,7 @@
       <workItem from="1600265412566" duration="12000" />
       <workItem from="1600326577425" duration="16151000" />
       <workItem from="1600413537726" duration="8762000" />
-      <workItem from="1600422493584" duration="7271000" />
+      <workItem from="1600422493584" duration="8568000" />
     </task>
     <servers />
   </component>
