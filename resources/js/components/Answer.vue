@@ -27,7 +27,6 @@
             </div>
         </div>
     </div>
-<!--    <hr>-->
 </template>
 
 <script>
@@ -69,8 +68,7 @@ export default {
             if (confirm('Are you sure?')) {
                 axios.delete(this.endpoint)
                     .then(res => {
-                        $(this.$el).fadeOut(5, () => {
-                        })
+                        this.$emit('deleted')
                     });
             }
         }
