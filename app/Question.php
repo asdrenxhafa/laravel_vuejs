@@ -13,6 +13,8 @@ class Question extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $appends = ['created_date', 'is_favorited', 'favorites_count'];
+
     public function answers(){
         return $this->hasMany(Answer::class);
     }
@@ -68,6 +70,9 @@ class Question extends Model
         return $this->favorites->count();
     }
 
+    public function getCreatedDateAttribute(){
+        return $this->created_at->diffForHumans();
+    }
 
     protected $fillable = [
         'title',

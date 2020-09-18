@@ -15,7 +15,7 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="{{ route('answers.update',[$answer, 'question' => $question]) }}" method="post">
+                        <form action="{{ route('question.answer.update',[$answer,$question]) }}" method="post">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
@@ -54,10 +54,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <form class="form-delete" method="POST" action="{{ route('answers.destroy',[$answer,'question' => $question]) }}">
+                    <form class="form-delete" method="post" action="{{ route('question.answer.destroy', [$question, $answer]) }}">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
                 </div>
             </div>

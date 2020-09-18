@@ -50,8 +50,11 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="button" class="btn btn-default" value="Anulo" >
-                                    <input type="button" href="#deleteModal" class="btn btn-sm btn-outline-danger" data-toggle="modal" value="Delete">
+                                    <form class="form-delete" method="POST" action="{{ route('questions.destroy',$question) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
                                     <input type="submit" class="btn btn-primary" value="Edit" >
                                 </div>
                             </form>
@@ -81,11 +84,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <form class="form-delete" method="POST" action="{{ route('questions.destroy',$question) }}">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Http\Requests\QuestionsRequest;
 use App\Question;
 use Illuminate\Http\Request;

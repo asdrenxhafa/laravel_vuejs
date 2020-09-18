@@ -15,28 +15,14 @@
                             </div>
                         </div>
                         <hr>
+
                         <div class="media">
-                            <div class="d-fex flex-column vote-controls">
-                                <a title="This question is useful"
-                                   class="vote-up {{ Auth::guest() ? 'off' : '' }}"
-                                   onclick="event.preventDefault(); document.getElementById('up-vote-question-{{ $question->id }}').submit();">
-                                    <i class="fas fa-caret-up fa-3x"></i>
-                                </a>
-                                <form id="up-vote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST" style="display:none;">
-                                    @csrf
-                                    <input type="hidden" name="vote" value="1">
-                                </form>
-                                <span class="votes-count">{{ $question->votes_count }}</span>
-                                <a title="This question is not useful"
-                                   class="vote-down {{ Auth::guest() ? 'off' : '' }}"
-                                   onclick="event.preventDefault(); document.getElementById('down-vote-question-{{ $question->id }}').submit();">
-                                    <i class="fas fa-caret-down fa-3x"></i>
-                                </a>
-                                <form id="down-vote-question-{{ $question->id }}" action="/questions/{{ $question->id }}/vote" method="POST" style="display:none;">
-                                    @csrf
-                                    <input type="hidden" name="vote" value="-1">
-                                </form>
-                                <a title="Click to mark as favorite question (Click again to undo)"
+                            @include ('shared.vote', [
+                                'model' => $question
+                            ])
+
+
+                                <a title="Click to mark as favorite question (Click again to undo) "
                                    class="favorite mt-2 {{ Auth::guest() ? 'off' : ($question->is_favorited ? 'favorited' : '') }}"
                                    onclick="event.preventDefault(); document.getElementById('favorite-question-{{ $question->id }}').submit();">
                                     <i class="fas fa-star fa-2x"></i>
@@ -54,17 +40,13 @@
                             <div class="media-body">
                     <div class="card-body">
                         {{ $question->body }}
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <user-info :model="{{ $question }}" label="Asked"></user-info>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body">
+                        <div class="float-right">
+                            <div class="media mt-2">
+                                <div class="media-body mt-1">
+                                    <user-info :model="{{ $question }}" label="Asked"></user-info>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     </div>
@@ -72,136 +54,13 @@
             </div>
 
 
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h2>{{ $question->answers_count . ' Answers'  }}</h2>
-                            </div>
-                            <hr>
-
-                            @if(session()->has('success'))
-                                <div class="alert alert-success alert-dismissible">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    {{ session()->get('success') }}
-                                </div>
-                            @endif
-                            @if(session()->has('failure'))
-                                <div class="alert alert-danger alert-dismissible">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    {{ session()->get('failure') }}
-                                </div>
-                            @endif
-
-                            @foreach ($question->answers as $answer)
-                                <div class="media">
-                                    <div class="d-fex flex-column vote-controls">
-                                        <a title="This answer is useful"
-                                           class="vote-up {{ Auth::guest() ? 'off' : '' }}"
-                                           onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{ $answer->id }}').submit();">
-                                            <i class="fas fa-caret-up fa-3x"></i>
-                                        </a>
-                                        <form id="up-vote-answer-{{ $answer->id }}" action="/answers/{{ $answer->id }}/vote" method="POST" style="display:none;">
-                                            @csrf
-                                            <input type="hidden" name="vote" value="1">
-                                        </form>
-
-                                        <span class="votes-count">{{ $answer->votes_count }}</span>
-
-                                        <a title="This answer is not useful"
-                                           class="vote-down {{ Auth::guest() ? 'off' : '' }}"
-                                           onclick="event.preventDefault(); document.getElementById('down-vote-answer-{{ $answer->id }}').submit();">
-                                            <i class="fas fa-caret-down fa-3x"></i>
-                                        </a>
-
-                                        <form id="down-vote-answer-{{ $answer->id }}" action="/answers/{{ $answer->id }}/vote" method="POST" style="display:none;">
-                                            @csrf
-                                            <input type="hidden" name="vote" value="-1">
-                                        </form>
-
-
-                                        @can ('accept', $answer)
-                                            <a title="Mark this answer as best answer"
-                                               class="{{ $answer->status }} mt-2"
-                                               onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();"
-                                            >
-                                                <i class="fas fa-check fa-2x"></i>
-                                            </a>
-                                            <form id="accept-answer-{{ $answer->id }}" action="{{ route('answers.accept', $answer->id) }}" method="POST" style="display:none;">
-                                                @csrf
-                                            </form>
-                                        @else
-                                            @if ($answer->is_best)
-                                                <a title="The question owner accepted this answer as best answer"
-                                                   class="{{ $answer->status }} mt-2">
-                                                    <i class="fas fa-check fa-2x"></i>
-                                                </a>
-                                            @endif
-                                        @endcan
-
-
-
-                                    </div>
-                                    <div class="media-body">
-                                        {{ $answer->body }}
-                                        <div class="float-right">
-{{--                                            <span class="text-muted">Answered {{ $answer->created_at->diffForHumans() }}</span>--}}
-                                            @if(Auth::user()->can('update',$answer))
-                                                <div class="ml-auto">
-                                                    <a href="{{ route('answers.edit',[$answer,$question]) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                                                </div>
-                                            @endif
-                                            <div class="media mt-2">
-                                                <a href="{{ $answer->user->url }}" class="pr-2">
-                                                    <img src="{{ $answer->user->avatar }}">
-                                                </a>
-                                                <div class="media-body mt-1">
-{{--                                                    <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>--}}
-                                                        <user-info :model="{{ $answer }}" label="Answered"></user-info>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                            @endforeach
-                        </div>
-                    </div>
-
-
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h2>Your Answer</h2>
-                            </div>
-
-                            <div class="media">
-                                <div class="media-body">
-                                    <form method="POST" action="{{ route('answers.store',['question_id'=>$question->id]) }}">
-                                        {{csrf_field()}}
-                                        <div class="form-group">
-                                            <label>Explain your Answer</label>
-                                            <textarea name="body" class="form-control" required style="height: 275px;"></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <input type="submit" class="btn btn-primary" value="Post Your Answer" >
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <hr>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-            </div>
-        </div>
+                @include ('answers.index', [
+        'answers' => $question->answers,
+        'answersCount' => $question->answers_count,
+        ])
+                @include ('answers.create')
         </div>
 
 @endsection
+
+

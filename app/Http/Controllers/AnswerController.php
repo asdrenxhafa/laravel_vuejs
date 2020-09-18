@@ -40,38 +40,37 @@ class AnswerController extends Controller
     }
 
 
-    public function update(AnswersRequest $request, Answer $answer)
+    public function update(AnswersRequest $request,Question $question, Answer $answer)
     {
         $this->authorize('update',$answer);
 
-        if($request->has('question')){
-            $q = $request->get('question');
+        $answer->update($request->validated());
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Your answer has been updated',
+                'body_html' => $answer->body
+            ]);
         }
 
-        $question = Question::findOrFail($q);
-
-        $answer->update($request->validated());
 
         return redirect()->route('questions.show', $question->slug)->with('success', "Your answer has been submitted successfully");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Answer $answer)
+
+
+    public function destroy(Question $question,Answer $answer)
     {
         $this->authorize('delete', $answer);
 
-        if(request()->has('question')){
-            $q = request()->get('question');
-        }
-
-        $question = Question::findOrFail($q);
-
         $answer->delete();
+
+        if (request()->expectsJson())
+        {
+            return response()->json([
+                'message' => "Your answer has been removed"
+            ]);
+        }
 
         return redirect()->route('questions.show', $question->slug)->with('success', "Your answer has been removed");
     }
