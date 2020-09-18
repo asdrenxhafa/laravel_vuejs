@@ -60,7 +60,7 @@ export default {
             }
             axios.post(this.endpoint, { vote })
                 .then(res => {
-                    alert(res.data.message);
+                    // alert(res.data.message);
                     this.count = res.data.votesCount;
                 })
         }

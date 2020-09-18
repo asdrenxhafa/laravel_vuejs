@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 class AnswerController extends Controller
 {
 
+    public function index(Question $question)
+    {
+        return $question->answers()->with('user')->simplePaginate(3);
+    }
+
     public function store(AnswersRequest $request,$id)
     {
        $question = Question::findOrFail($id);
