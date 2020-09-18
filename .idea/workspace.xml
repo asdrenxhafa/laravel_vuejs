@@ -23,10 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80f560f-82fd-486a-ae04-afe25e5e731b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/event-bus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Accept.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Accept.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Answers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Vote.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Vote.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -206,7 +209,7 @@
       <workItem from="1600265412566" duration="12000" />
       <workItem from="1600326577425" duration="16151000" />
       <workItem from="1600413537726" duration="8762000" />
-      <workItem from="1600422493584" duration="8568000" />
+      <workItem from="1600422493584" duration="9490000" />
     </task>
     <servers />
   </component>
@@ -250,9 +253,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600433229400" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600434115190">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600439914514">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600434115190" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600439914514" />
   </component>
 </project>

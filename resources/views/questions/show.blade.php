@@ -42,17 +42,9 @@
                 </div>
             </div>
 
-
-{{--                @include ('answers.index', [--}}
-{{--        'answers' => $question->answers,--}}
-{{--        'answersCount' => $question->answers_count,--}}
-{{--        ])--}}
-
                 <answers :question="{{ $question }}"></answers>
 
-                @include ('answers.create')
-        </div>
-
+            </div>
 @endsection
 
 
