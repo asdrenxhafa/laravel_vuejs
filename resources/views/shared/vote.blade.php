@@ -42,15 +42,10 @@
     </form>
 
     @if ($model instanceof App\Question)
-{{--        @include ('shared.favorite', [--}}
-{{--            'model' => $model--}}
-{{--        ])--}}
-
-{{--    <favorite :question="{{ $model }}"></favorite>--}}
-
+    <favorite :question="{{ $model }}"></favorite>
     @elseif ($model instanceof App\Answer)
         @include ('shared.accepted', [
             'model' => $model
         ])
     @endif
-{{--</div>--}}
+</div>

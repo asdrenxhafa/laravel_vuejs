@@ -3874,14 +3874,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggle: function toggle() {
       if (!this.signedIn) {
-        this.$toast.warning("Please login to favorite this question", "Warning", {
-          timeout: 3000,
-          position: 'bottomLeft'
-        });
-        return;
+        alert("Please login to favorite this question", "Warning");
+      } else {
+        this.isFavorited ? this.destroy() : this.create();
       }
-
-      this.isFavorited ? this.destroy() : this.create();
     },
     destroy: function destroy() {
       var _this = this;

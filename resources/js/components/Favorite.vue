@@ -32,13 +32,10 @@ export default {
     methods: {
         toggle () {
             if (! this.signedIn) {
-                this.$toast.warning("Please login to favorite this question", "Warning", {
-                    timeout: 3000,
-                    position: 'bottomLeft'
-                });
-                return;
+                alert("Please login to favorite this question", "Warning");
+            }else {
+                this.isFavorited ? this.destroy() : this.create();
             }
-            this.isFavorited ? this.destroy() : this.create();
         },
         destroy () {
             axios.delete(this.endpoint)
