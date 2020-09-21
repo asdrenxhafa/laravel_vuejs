@@ -32,12 +32,13 @@
 <script>
 import Vote from './Vote.vue';
 import UserInfo from './UserInfo.vue';
+import modification from '../mixins/modification'
 export default {
     props: ['answer'],
+    mixins: [modification],
     components: { Vote, UserInfo },
     data () {
         return {
-            editing: false,
             body: this.answer.body,
             bodyHtml: this.answer.body_html,
             id: this.answer.id,
@@ -46,36 +47,24 @@ export default {
         }
     },
     methods: {
-        edit () {
+        setEditCache () {
             this.beforeEditCache = this.body;
-            this.editing = true;
         },
-        cancel () {
+        restoreFromCache () {
             this.body = this.beforeEditCache;
-            this.editing = false;
         },
-        update () {
-            // axios.patch(`/question/${this.questionId}/answer/${this.id}`, {
-            axios.patch(this.endpoint, {
-                body: this.body
-            })
+        payload () {
+            return {body: this.body};
+
+        },
+        delete () {
+            axios.delete(this.endpoint)
                 .then(res => {
-                    this.editing = false;
-                    this.bodyHtml = res.data.body_html;
-                })
-                .catch(err => {
-                    alert(err.response.data.message);
+                    // this.$toast.success(res.data.message, "Success", { timeout: 2000 });
+                    this.$emit('deleted')
                 });
-        },
-        destroy () {
-            if (confirm('Are you sure?')) {
-                axios.delete(this.endpoint)
-                    .then(res => {
-                        this.$emit('deleted')
-                    });
-            }
         }
-},
+    },
     computed: {
         isInvalid() {
             return this.body.length < 10;
