@@ -13,7 +13,7 @@ class Question extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['created_date', 'is_favorited', 'favorites_count'];
+    protected $appends = ['created_date', 'body_html', 'is_favorited', 'favorites_count'];
 
     public function answers(){
         return $this->hasMany(Answer::class);
@@ -22,6 +22,11 @@ class Question extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getBodyHtmlAttribute()
+    {
+        return \Parsedown::instance()->text($this->body);
     }
 
     public function setTitleAttribute($value)

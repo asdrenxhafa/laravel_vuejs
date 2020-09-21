@@ -23,12 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80f560f-82fd-486a-ae04-afe25e5e731b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/Question.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/QuestionPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/QuestionsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/QuestionsRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Answers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Vote.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Vote.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/authorization/policies.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/authorization/policies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Answer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +214,10 @@
       <workItem from="1600265412566" duration="12000" />
       <workItem from="1600326577425" duration="16151000" />
       <workItem from="1600413537726" duration="8762000" />
-      <workItem from="1600422493584" duration="9490000" />
+      <workItem from="1600422493584" duration="10545000" />
+      <workItem from="1600510352347" duration="595000" />
+      <workItem from="1600547812831" duration="860000" />
+      <workItem from="1600673534991" duration="2607000" />
     </task>
     <servers />
   </component>
@@ -253,9 +261,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600433229400" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600439914514">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600676013039">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600439914514" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1600676013039" />
   </component>
 </project>

@@ -28,6 +28,7 @@ Vue.component('answers', require('./components/Answers.vue').default);
 Vue.component('favorite', require('./components/Favorite.vue').default);
 Vue.component('accept', require('./components/Accept.vue').default);
 Vue.component('vote', require('./components/Vote.vue').default);
+Vue.component('question-page', require('./pages/QuestionPage.vue').default);
 Vue.use(Authorization);
 
 // let user = Vue.component('user-info', require('./components/UserInfo.vue').default);

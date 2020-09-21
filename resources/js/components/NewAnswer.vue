@@ -30,7 +30,7 @@ export default {
                 body: this.body
             })
                 .catch(error => {
-                    this.$toast.error(error.response.data.message, "Error");
+                    alert(error.response.data.message);
                 })
                 .then(({data}) => {
                     this.body = '';
