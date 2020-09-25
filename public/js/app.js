@@ -53721,7 +53721,6 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref2.data;
         _this.bodyHtml = data.body_html; // this.$toast.success(data.message, "Success", { timeout: 3000 });
 
-        alert(data.message);
         _this.editing = false;
       });
     },

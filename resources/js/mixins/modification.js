@@ -27,7 +27,6 @@ export default {
                 .then(({data}) => {
                     this.bodyHtml = data.body_html;
                     // this.$toast.success(data.message, "Success", { timeout: 3000 });
-                    alert(data.message);
                     this.editing = false;
                 })
         },
