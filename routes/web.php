@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/','QuestionController@index')->middleware('auth');
-
 Auth::routes();
 
-Route::middleware('auth')->group(function(){
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+Route::middleware('auth')->middleware('verified')->group(function(){
 
     Route::get('/','QuestionController@index');
 

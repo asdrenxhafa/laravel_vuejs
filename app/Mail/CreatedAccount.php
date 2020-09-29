@@ -28,7 +28,7 @@ class CreatedAccount extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.welcome')
+        return $this->view('auth.verify-email')
             ->subject('Hello & Welcome!');
     }
 }

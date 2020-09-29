@@ -14,20 +14,6 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-//            $table->id();
-//            $table->string('title');
-//            $table->string('slug')->unique();
-//            $table->text('body');
-//            $table->integer('views')->default(0);
-//            $table->integer('answers_count')->default(0);
-//            $table->integer('votes_count')->default(0);
-//            $table->unsignedBigInteger('best_answer_id')->nullable();
-//            $table->unsignedBigInteger('user_id');
-//            $table->softDeletes();
-//            $table->timestamps();
-//
-//            $table->foreign('user_id')->references('id')->on('users');
-
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
@@ -37,6 +23,11 @@ class CreateQuestionsTable extends Migration
             $table->integer('votes_count')->default(0);
             $table->unsignedBigInteger('best_answer_id')->nullable();
             $table->unsignedBigInteger('user_id');
+//            $table->enum('asd',[
+//                '1',
+//                '2',
+//                '3'
+//            ])->nullable();
             $table->softDeletes();
             $table->timestamps();
 

@@ -29,6 +29,7 @@ class QuestionController extends Controller
     {
         $newQuestion = new Question($request->validated());
         $newQuestion->user_id = $request->user()->id;
+        $newQuestion->asd = '1';
         $newQuestion->save();
 
         $questions = Question::latest()->paginate(5);
