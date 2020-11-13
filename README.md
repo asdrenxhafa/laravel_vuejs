@@ -1,6 +1,6 @@
 # Question and Answer App
 
-I Build this app while learning vuejs
+I built this app while learning vuejs
 
 ----------------------------------------------------------
 
